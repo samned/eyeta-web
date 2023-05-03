@@ -160,7 +160,7 @@ const SettingsMenu = () => {
                 selected={location.pathname.startsWith('/settings/calendar')}
               />
             )}
-            {!features.disableComputedAttributes && (
+            {!features.disableComputedAttributes && admin && (
               <MenuItem
                 title={t('sharedComputedAttributes')}
                 link="/settings/attributes"
@@ -168,7 +168,7 @@ const SettingsMenu = () => {
                 selected={location.pathname.startsWith('/settings/attribute')}
               />
             )}
-            {!features.disableMaintenance && (
+            {!features.disableMaintenance && admin && (
               <MenuItem
                 title={t('sharedMaintenance')}
                 link="/settings/maintenances"
@@ -176,12 +176,14 @@ const SettingsMenu = () => {
                 selected={location.pathname.startsWith('/settings/maintenance')}
               />
             )}
-            <MenuItem
-              title={t('sharedSavedCommands')}
-              link="/settings/commands"
-              icon={<PublishIcon />}
-              selected={location.pathname.startsWith('/settings/command') && !location.pathname.startsWith('/settings/command-send')}
-            />
+            {admin && (
+              <MenuItem
+                title={t('sharedSavedCommands')}
+                link="/settings/commands"
+                icon={<PublishIcon />}
+                selected={location.pathname.startsWith('/settings/command') && !location.pathname.startsWith('/settings/command-send')}
+              />
+            )}
           </>
         )}
       </List>

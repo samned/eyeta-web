@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
-    textAlign: 'left',
+    textAlign: 'center',
     marginTop: theme.spacing(2),
   },
   footer: {
@@ -163,7 +163,7 @@ const LoginPage = () => {
     <LoginLayout>
       {/* greetingTime(new Date()); */}
       <div>
-        <Typography variant="h2" className={classes.title}>
+        <Typography variant="h3" className={classes.title}>
           {greetingTime(new Date())}
           {' '}
           {username}

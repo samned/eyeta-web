@@ -144,173 +144,177 @@ const UserPage = () => {
               />
             </AccordionDetails>
           </Accordion>
-          <Accordion>
-            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography variant="subtitle1">
-                {t('sharedPreferences')}
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails className={classes.details}>
-              <TextField
-                value={item.phone || ''}
-                onChange={(event) => setItem({ ...item, phone: event.target.value })}
-                label={t('sharedPhone')}
-              />
-              {admin && (
-                <FormControl>
-                  <InputLabel>{t('mapDefault')}</InputLabel>
-                  <Select
-                    label={t('mapDefault')}
-                    value={item.map || 'locationIqStreets'}
-                    onChange={(e) => setItem({ ...item, map: e.target.value })}
-                  >
-                    {mapStyles.filter((style) => style.available).map((style) => (
-                      <MenuItem key={style.id} value={style.id}>
-                        <Typography component="span">{style.title}</Typography>
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-              )}
-              {admin && (
-                <FormControl>
-                  <InputLabel>{t('settingsCoordinateFormat')}</InputLabel>
-                  <Select
-                    label={t('settingsCoordinateFormat')}
-                    value={item.coordinateFormat || 'dd'}
-                    onChange={(event) => setItem({ ...item, coordinateFormat: event.target.value })}
-                  >
-                    <MenuItem value="dd">{t('sharedDecimalDegrees')}</MenuItem>
-                    <MenuItem value="ddm">{t('sharedDegreesDecimalMinutes')}</MenuItem>
-                    <MenuItem value="dms">{t('sharedDegreesMinutesSeconds')}</MenuItem>
-                  </Select>
-                </FormControl>
-              )}
-              {admin && (
-                <FormControl>
-                  <InputLabel>{t('settingsSpeedUnit')}</InputLabel>
-                  <Select
-                    label={t('settingsSpeedUnit')}
-                    value={(item.attributes && item.attributes.speedUnit) || 'kn'}
-                    onChange={(e) => setItem({ ...item, attributes: { ...item.attributes, speedUnit: e.target.value } })}
-                  >
-                    <MenuItem value="kn">{t('sharedKn')}</MenuItem>
-                    <MenuItem value="kmh">{t('sharedKmh')}</MenuItem>
-                    <MenuItem value="mph">{t('sharedMph')}</MenuItem>
-                  </Select>
-                </FormControl>
-              )}
-              {admin && (
-                <FormControl>
-                  <InputLabel>{t('settingsDistanceUnit')}</InputLabel>
-                  <Select
-                    label={t('settingsDistanceUnit')}
-                    value={(item.attributes && item.attributes.distanceUnit) || 'km'}
-                    onChange={(e) => setItem({ ...item, attributes: { ...item.attributes, distanceUnit: e.target.value } })}
-                  >
-                    <MenuItem value="km">{t('sharedKm')}</MenuItem>
-                    <MenuItem value="mi">{t('sharedMi')}</MenuItem>
-                    <MenuItem value="nmi">{t('sharedNmi')}</MenuItem>
-                  </Select>
-                </FormControl>
-              )}
-              {admin && (
-                <FormControl>
-                  <InputLabel>{t('settingsAltitudeUnit')}</InputLabel>
-                  <Select
-                    label={t('settingsAltitudeUnit')}
-                    value={(item.attributes && item.attributes.altitudeUnit) || 'm'}
-                    onChange={(e) => setItem({ ...item, attributes: { ...item.attributes, altitudeUnit: e.target.value } })}
-                  >
-                    <MenuItem value="m">{t('sharedMeters')}</MenuItem>
-                    <MenuItem value="ft">{t('sharedFeet')}</MenuItem>
-                  </Select>
-                </FormControl>
-              )}
-              {admin && (
-                <FormControl>
-                  <InputLabel>{t('settingsVolumeUnit')}</InputLabel>
-                  <Select
-                    label={t('settingsVolumeUnit')}
-                    value={(item.attributes && item.attributes.volumeUnit) || 'ltr'}
-                    onChange={(e) => setItem({ ...item, attributes: { ...item.attributes, volumeUnit: e.target.value } })}
-                  >
-                    <MenuItem value="ltr">{t('sharedLiter')}</MenuItem>
-                    <MenuItem value="usGal">{t('sharedUsGallon')}</MenuItem>
-                    <MenuItem value="impGal">{t('sharedImpGallon')}</MenuItem>
-                  </Select>
-                </FormControl>
-              )}
-              {admin && (
-                <SelectField
-                  value={(item.attributes && item.attributes.timezone) || ''}
-                  emptyValue=""
-                  onChange={(e) => setItem({ ...item, attributes: { ...item.attributes, timezone: e.target.value } })}
-                  endpoint="/api/server/timezones"
-                  keyGetter={(it) => it}
-                  titleGetter={(it) => it}
-                  label={t('sharedTimezone')}
-                />
-              )}
-              {admin && (
+          {admin && (
+            <Accordion>
+              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                <Typography variant="subtitle1">
+                  {t('sharedPreferences')}
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails className={classes.details}>
                 <TextField
-                  value={item.poiLayer || ''}
-                  onChange={(event) => setItem({ ...item, poiLayer: event.target.value })}
-                  label={t('mapPoiLayer')}
+                  value={item.phone || ''}
+                  onChange={(event) => setItem({ ...item, phone: event.target.value })}
+                  label={t('sharedPhone')}
                 />
-              )}
-              {admin && (
-                <FormGroup>
-                  <FormControlLabel
-                    control={<Checkbox checked={item.twelveHourFormat} onChange={(event) => setItem({ ...item, twelveHourFormat: event.target.checked })} />}
-                    label={t('settingsTwelveHourFormat')}
+                {admin && (
+                  <FormControl>
+                    <InputLabel>{t('mapDefault')}</InputLabel>
+                    <Select
+                      label={t('mapDefault')}
+                      value={item.map || 'locationIqStreets'}
+                      onChange={(e) => setItem({ ...item, map: e.target.value })}
+                    >
+                      {mapStyles.filter((style) => style.available).map((style) => (
+                        <MenuItem key={style.id} value={style.id}>
+                          <Typography component="span">{style.title}</Typography>
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                )}
+                {admin && (
+                  <FormControl>
+                    <InputLabel>{t('settingsCoordinateFormat')}</InputLabel>
+                    <Select
+                      label={t('settingsCoordinateFormat')}
+                      value={item.coordinateFormat || 'dd'}
+                      onChange={(event) => setItem({ ...item, coordinateFormat: event.target.value })}
+                    >
+                      <MenuItem value="dd">{t('sharedDecimalDegrees')}</MenuItem>
+                      <MenuItem value="ddm">{t('sharedDegreesDecimalMinutes')}</MenuItem>
+                      <MenuItem value="dms">{t('sharedDegreesMinutesSeconds')}</MenuItem>
+                    </Select>
+                  </FormControl>
+                )}
+                {admin && (
+                  <FormControl>
+                    <InputLabel>{t('settingsSpeedUnit')}</InputLabel>
+                    <Select
+                      label={t('settingsSpeedUnit')}
+                      value={(item.attributes && item.attributes.speedUnit) || 'kn'}
+                      onChange={(e) => setItem({ ...item, attributes: { ...item.attributes, speedUnit: e.target.value } })}
+                    >
+                      <MenuItem value="kn">{t('sharedKn')}</MenuItem>
+                      <MenuItem value="kmh">{t('sharedKmh')}</MenuItem>
+                      <MenuItem value="mph">{t('sharedMph')}</MenuItem>
+                    </Select>
+                  </FormControl>
+                )}
+                {admin && (
+                  <FormControl>
+                    <InputLabel>{t('settingsDistanceUnit')}</InputLabel>
+                    <Select
+                      label={t('settingsDistanceUnit')}
+                      value={(item.attributes && item.attributes.distanceUnit) || 'km'}
+                      onChange={(e) => setItem({ ...item, attributes: { ...item.attributes, distanceUnit: e.target.value } })}
+                    >
+                      <MenuItem value="km">{t('sharedKm')}</MenuItem>
+                      <MenuItem value="mi">{t('sharedMi')}</MenuItem>
+                      <MenuItem value="nmi">{t('sharedNmi')}</MenuItem>
+                    </Select>
+                  </FormControl>
+                )}
+                {admin && (
+                  <FormControl>
+                    <InputLabel>{t('settingsAltitudeUnit')}</InputLabel>
+                    <Select
+                      label={t('settingsAltitudeUnit')}
+                      value={(item.attributes && item.attributes.altitudeUnit) || 'm'}
+                      onChange={(e) => setItem({ ...item, attributes: { ...item.attributes, altitudeUnit: e.target.value } })}
+                    >
+                      <MenuItem value="m">{t('sharedMeters')}</MenuItem>
+                      <MenuItem value="ft">{t('sharedFeet')}</MenuItem>
+                    </Select>
+                  </FormControl>
+                )}
+                {admin && (
+                  <FormControl>
+                    <InputLabel>{t('settingsVolumeUnit')}</InputLabel>
+                    <Select
+                      label={t('settingsVolumeUnit')}
+                      value={(item.attributes && item.attributes.volumeUnit) || 'ltr'}
+                      onChange={(e) => setItem({ ...item, attributes: { ...item.attributes, volumeUnit: e.target.value } })}
+                    >
+                      <MenuItem value="ltr">{t('sharedLiter')}</MenuItem>
+                      <MenuItem value="usGal">{t('sharedUsGallon')}</MenuItem>
+                      <MenuItem value="impGal">{t('sharedImpGallon')}</MenuItem>
+                    </Select>
+                  </FormControl>
+                )}
+                {admin && (
+                  <SelectField
+                    value={(item.attributes && item.attributes.timezone) || ''}
+                    emptyValue=""
+                    onChange={(e) => setItem({ ...item, attributes: { ...item.attributes, timezone: e.target.value } })}
+                    endpoint="/api/server/timezones"
+                    keyGetter={(it) => it}
+                    titleGetter={(it) => it}
+                    label={t('sharedTimezone')}
                   />
-                </FormGroup>
-              )}
-            </AccordionDetails>
-          </Accordion>
-          <Accordion>
-            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography variant="subtitle1">
-                {t('sharedLocation')}
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails className={classes.details}>
-              <TextField
-                type="number"
-                value={item.latitude || 0}
-                onChange={(event) => setItem({ ...item, latitude: Number(event.target.value) })}
-                label={t('positionLatitude')}
-              />
-              <TextField
-                type="number"
-                value={item.longitude || 0}
-                onChange={(event) => setItem({ ...item, longitude: Number(event.target.value) })}
-                label={t('positionLongitude')}
-              />
-              <TextField
-                type="number"
-                value={item.zoom || 0}
-                onChange={(event) => setItem({ ...item, zoom: Number(event.target.value) })}
-                label={t('serverZoom')}
-              />
-              <Button
-                variant="outlined"
-                color="primary"
-                onClick={() => {
-                  const { lng, lat } = map.getCenter();
-                  setItem({
-                    ...item,
-                    latitude: Number(lat.toFixed(6)),
-                    longitude: Number(lng.toFixed(6)),
-                    zoom: Number(map.getZoom().toFixed(1)),
-                  });
-                }}
-              >
-                {t('mapCurrentLocation')}
-              </Button>
-            </AccordionDetails>
-          </Accordion>
+                )}
+                {admin && (
+                  <TextField
+                    value={item.poiLayer || ''}
+                    onChange={(event) => setItem({ ...item, poiLayer: event.target.value })}
+                    label={t('mapPoiLayer')}
+                  />
+                )}
+                {admin && (
+                  <FormGroup>
+                    <FormControlLabel
+                      control={<Checkbox checked={item.twelveHourFormat} onChange={(event) => setItem({ ...item, twelveHourFormat: event.target.checked })} />}
+                      label={t('settingsTwelveHourFormat')}
+                    />
+                  </FormGroup>
+                )}
+              </AccordionDetails>
+            </Accordion>
+          )}
+          {admin && (
+            <Accordion>
+              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                <Typography variant="subtitle1">
+                  {t('sharedLocation')}
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails className={classes.details}>
+                <TextField
+                  type="number"
+                  value={item.latitude || 0}
+                  onChange={(event) => setItem({ ...item, latitude: Number(event.target.value) })}
+                  label={t('positionLatitude')}
+                />
+                <TextField
+                  type="number"
+                  value={item.longitude || 0}
+                  onChange={(event) => setItem({ ...item, longitude: Number(event.target.value) })}
+                  label={t('positionLongitude')}
+                />
+                <TextField
+                  type="number"
+                  value={item.zoom || 0}
+                  onChange={(event) => setItem({ ...item, zoom: Number(event.target.value) })}
+                  label={t('serverZoom')}
+                />
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  onClick={() => {
+                    const { lng, lat } = map.getCenter();
+                    setItem({
+                      ...item,
+                      latitude: Number(lat.toFixed(6)),
+                      longitude: Number(lng.toFixed(6)),
+                      zoom: Number(map.getZoom().toFixed(1)),
+                    });
+                  }}
+                >
+                  {t('mapCurrentLocation')}
+                </Button>
+              </AccordionDetails>
+            </Accordion>
+          )}
           {admin && (
             <Accordion>
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>

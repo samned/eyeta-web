@@ -11,10 +11,6 @@ import or from '../../resources/l10n/or.json';
 import tg from '../../resources/l10n/tg.json';
 import sm from '../../resources/l10n/sm.json';
 import ar from '../../resources/l10n/ar.json';
-import am from '../../resources/l10n/am.json';
-import or from '../../resources/l10n/or.json';
-import tg from '../../resources/l10n/tg.json';
-import sm from '../../resources/l10n/sm.json';
 import az from '../../resources/l10n/az.json';
 import bg from '../../resources/l10n/bg.json';
 import bn from '../../resources/l10n/bn.json';
@@ -74,10 +70,6 @@ import usePersistedState from '../util/usePersistedState';
 const languages = {
   af: { data: af, name: 'Afrikaans' },
   ar: { data: ar, name: 'العربية' },
-  am: { data: am, name: 'አማርኛ' },
-  or: { data: or, name: 'Afaan Oromoo' },
-  tg: { data: tg, name: 'ትግርኛ' },
-  sm: { data: sm, name: 'Af Soomaali' },
   am: { data: am, name: 'አማርኛ' },
   or: { data: or, name: 'Afaan Oromoo' },
   tg: { data: tg, name: 'ትግርኛ' },
