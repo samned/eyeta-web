@@ -99,7 +99,7 @@ const BottomMenu = () => {
         navigate('/reports/route');
         break;
       case 'settings':
-        navigate('/settings/preferences');
+        navigate('/settings/notifications');
         break;
       case 'account':
         setAnchorEl(event.currentTarget);

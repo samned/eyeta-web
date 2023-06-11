@@ -176,14 +176,12 @@ const SettingsMenu = () => {
                 selected={location.pathname.startsWith('/settings/maintenance')}
               />
             )}
-            {admin && (
-              <MenuItem
-                title={t('sharedSavedCommands')}
-                link="/settings/commands"
-                icon={<PublishIcon />}
-                selected={location.pathname.startsWith('/settings/command') && !location.pathname.startsWith('/settings/command-send')}
-              />
-            )}
+            <MenuItem
+              title={t('sharedSavedCommands')}
+              link="/settings/commands"
+              icon={<PublishIcon />}
+              selected={location.pathname.startsWith('/settings/command') && !location.pathname.startsWith('/settings/command-send')}
+            />
           </>
         )}
       </List>
