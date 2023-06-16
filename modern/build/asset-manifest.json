@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.e82beb26.css",
-    "main.js": "/static/js/main.7da24e05.js",
+    "main.js": "/static/js/main.33d66f02.js",
     "static/media/boomlift.svg": "/static/media/boomlift.31951ca4a4ebe1102d90574eda8fd8ec.svg",
     "static/media/car.svg": "/static/media/car.c7bd0a53a40af862c4b6ab670e3a231c.svg",
     "service-worker.js": "/service-worker.js",
@@ -57,10 +57,10 @@
     "static/media/direction.svg": "/static/media/direction.c5038e0ef564e429186eb6841e0ef71f.svg",
     "static/media/skyjack.svg": "/static/media/skyjack.2d5526ae5c9bd2f8b53132be755628b8.svg",
     "main.e82beb26.css.map": "/static/css/main.e82beb26.css.map",
-    "main.7da24e05.js.map": "/static/js/main.7da24e05.js.map"
+    "main.33d66f02.js.map": "/static/js/main.33d66f02.js.map"
   },
   "entrypoints": [
     "static/css/main.e82beb26.css",
-    "static/js/main.7da24e05.js"
+    "static/js/main.33d66f02.js"
   ]
 }

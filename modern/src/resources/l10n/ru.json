@@ -485,7 +485,7 @@
     "notificatorMail": "Почта",
     "notificatorSms": "СМС",
     "notificatorFirebase": "Firebase",
-    "notificatorTraccar": "Traccar",
+    "notificatorTraccar": "Eyeta",
     "notificatorTelegram": "Telegram",
     "notificatorPushover": "Pushover",
     "reportReplay": "Воспроизвести",
