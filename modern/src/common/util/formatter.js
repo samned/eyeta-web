@@ -13,6 +13,8 @@ import { prefixString } from './stringUtils';
 
 export const formatBoolean = (value, t) => (value ? t('sharedYes') : t('sharedNo'));
 
+export const formatIgnition = (value, t) => (value ? t('IgnitionOn') : t('IgnitionOff'));
+
 export const formatNumber = (value, precision = 1) => Number(value.toFixed(precision));
 
 export const formatPercentage = (value) => `${value}%`;
