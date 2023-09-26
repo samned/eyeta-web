@@ -18,6 +18,9 @@ export const formatIgnition = (value, t) => (value ? t('IgnitionOn') : t('Igniti
 export const formatNumber = (value, precision = 1) => Number(value.toFixed(precision));
 
 export const formatPercentage = (value) => `${value}%`;
+export const formatVoltage = (value, t) => `${value} ${t('sharedVoltAbbreviation')}`;
+
+export const formatConsumption = (value, t) => `${value} ${t('sharedLiterPerHourAbbreviation')}`;
 
 export const formatTime = (value, format, hours12) => {
   if (value) {
