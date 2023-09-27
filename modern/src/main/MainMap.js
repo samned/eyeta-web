@@ -59,6 +59,7 @@ const MainMap = ({ filteredPositions, selectedPosition, onEventsClick }) => {
       {desktop && (
         <MapPadding left={parseInt(theme.dimensions.drawerWidthDesktop, 10)} />
       )}
+
     </>
   );
 };

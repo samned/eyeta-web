@@ -1,5 +1,8 @@
 module.exports = {
-  extends: 'airbnb',
+  extends: [
+    "airbnb",
+    "prettier",
+  ],
   parserOptions: {
     ecmaVersion: 2020,
   },

@@ -13,83 +13,28 @@ import PeopleIcon from '@mui/icons-material/People';
 import TodayIcon from '@mui/icons-material/Today';
 import PublishIcon from '@mui/icons-material/Publish';
 import SmartphoneIcon from '@mui/icons-material/Smartphone';
-import {
-  pink, orange, cyan, green, red,
-} from '@mui/material/colors';
-import { makeStyles } from '@mui/styles';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useTranslation } from '../../common/components/LocalizationProvider';
 import {
-  useAdministrator, useDeviceReadonly, useManager, useRestriction,
+  useAdministrator, useManager, useRestriction,
 } from '../../common/util/permissions';
 import useFeatures from '../../common/util/useFeatures';
 
-const useStyles = makeStyles(() => ({
-  ListItemButton: {
-    root: {
-      '&:hover': {
-        backgroundColor: pink[100],
-        color: pink[700],
-      },
-      '&$selected': {
-        backgroundColor: orange[700],
-        color: orange[700],
-        '&:hover': {
-          backgroundColor: cyan[500],
-          color: green[700],
-        },
-      },
-    },
-  },
-}));
 const MenuItem = ({
   title, link, icon, selected,
 }) => (
-  <ListItemButton
-    key={link}
-    component={Link}
-    to={link}
-    selected={selected}
-    sx={{
-      '& svg': {
-        color: red[500],
-        transition: '0.2s',
-        transform: 'translateX(0) rotate(0)',
-      },
-      '&:hover, &:focus': {
-        bgcolor: 'unset',
-        '& svg:first-of-type': {
-          transform: 'translateX(4px) rotate(8deg) scale(1.1)',
-        },
-        '& svg:last-of-type': {
-          right: 0,
-          opacity: 1,
-        },
-      },
-      '&:after': {
-        content: '""',
-        position: 'absolute',
-        height: '80%',
-        display: 'block',
-        left: 0,
-        width: '1px',
-        bgcolor: 'divider',
-      },
-    }}
-  >
+  <ListItemButton key={link} component={Link} to={link} selected={selected}>
     <ListItemIcon>{icon}</ListItemIcon>
     <ListItemText primary={title} />
   </ListItemButton>
 );
 
 const SettingsMenu = () => {
-  const classes = useStyles();
   const t = useTranslation();
   const location = useLocation();
 
   const readonly = useRestriction('readonly');
-  const deviceReadonly = useDeviceReadonly();
   const admin = useAdministrator();
   const manager = useManager();
   const userId = useSelector((state) => state.session.user.id);
@@ -99,15 +44,12 @@ const SettingsMenu = () => {
   return (
     <>
       <List>
-        {admin && (
-          <MenuItem
-            classname={classes.meuListButton}
-            title={t('sharedPreferences')}
-            link="/settings/preferences"
-            icon={<SettingsIcon />}
-            selected={location.pathname === '/settings/preferences'}
-          />
-        )}
+        <MenuItem
+          title={t('sharedPreferences')}
+          link="/settings/preferences"
+          icon={<SettingsIcon />}
+          selected={location.pathname === '/settings/preferences'}
+        />
         {!readonly && (
           <>
             <MenuItem
@@ -122,14 +64,12 @@ const SettingsMenu = () => {
               icon={<PersonIcon />}
               selected={location.pathname === `/settings/user/${userId}`}
             />
-            {!deviceReadonly && (
-              <MenuItem
-                title={t('deviceTitle')}
-                link="/settings/devices"
-                icon={<SmartphoneIcon />}
-                selected={location.pathname.startsWith('/settings/device')}
-              />
-            )}
+            <MenuItem
+              title={t('deviceTitle')}
+              link="/settings/devices"
+              icon={<SmartphoneIcon />}
+              selected={location.pathname.startsWith('/settings/device')}
+            />
             <MenuItem
               title={t('sharedGeofences')}
               link="/geofences"
@@ -160,7 +100,7 @@ const SettingsMenu = () => {
                 selected={location.pathname.startsWith('/settings/calendar')}
               />
             )}
-            {!features.disableComputedAttributes && admin && (
+            {!features.disableComputedAttributes && (
               <MenuItem
                 title={t('sharedComputedAttributes')}
                 link="/settings/attributes"
@@ -168,7 +108,7 @@ const SettingsMenu = () => {
                 selected={location.pathname.startsWith('/settings/attribute')}
               />
             )}
-            {!features.disableMaintenance && admin && (
+            {!features.disableMaintenance && (
               <MenuItem
                 title={t('sharedMaintenance')}
                 link="/settings/maintenances"
@@ -180,7 +120,7 @@ const SettingsMenu = () => {
               title={t('sharedSavedCommands')}
               link="/settings/commands"
               icon={<PublishIcon />}
-              selected={location.pathname.startsWith('/settings/command') && !location.pathname.startsWith('/settings/command-send')}
+              selected={location.pathname.startsWith('/settings/command')}
             />
           </>
         )}
@@ -209,5 +149,4 @@ const SettingsMenu = () => {
     </>
   );
 };
-
 export default SettingsMenu;
