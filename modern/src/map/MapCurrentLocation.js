@@ -15,7 +15,10 @@ const MapCurrentLocation = () => {
     });
     map.addControl(control);
     map.addControl(social);
-    return () => map.removeControl(control);
+    return () => {
+      map.removeControl(control);
+      map.removeControl(social)
+    };
   }, []);
 
   return null;
