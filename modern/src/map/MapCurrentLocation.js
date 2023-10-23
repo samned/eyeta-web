@@ -14,7 +14,7 @@ const MapCurrentLocation = () => {
       trackUserLocation: true,
     });
     map.addControl(control);
-    map.addControl(social, 'top-right');
+    map.addControl(social);
     return () => map.removeControl(control);
   }, []);
 
