@@ -15,6 +15,7 @@ import PublishIcon from '@mui/icons-material/Publish';
 import SmartphoneIcon from '@mui/icons-material/Smartphone';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { red } from '@mui/material/colors';
 import { useTranslation } from '../../common/components/LocalizationProvider';
 import {
   useAdministrator, useManager, useRestriction,
@@ -24,8 +25,8 @@ import useFeatures from '../../common/util/useFeatures';
 const MenuItem = ({
   title, link, icon, selected,
 }) => (
-  <ListItemButton key={link} component={Link} to={link} selected={selected}>
-    <ListItemIcon>{icon}</ListItemIcon>
+  <ListItemButton sx={{ color: red[500] }} key={link} component={Link} to={link} selected={selected}>
+    <ListItemIcon sx={{ color: red[600] }}>{icon}</ListItemIcon>
     <ListItemText primary={title} />
   </ListItemButton>
 );
@@ -45,6 +46,7 @@ const SettingsMenu = () => {
     <>
       <List>
         <MenuItem
+
           title={t('sharedPreferences')}
           link="/settings/preferences"
           icon={<SettingsIcon />}

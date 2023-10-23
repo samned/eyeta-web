@@ -6,7 +6,7 @@ const Copyright = () => (
   <Typography variant="body2" color="text.secondary">
     {'Copyright © '}
     <Link color="inherit" href="https://eyetatechmobile.com/">
-      Eyeta Tech Mobile
+      Eyeta TechMobile, LLC
     </Link>
     {' '}
     {new Date().getFullYear()}

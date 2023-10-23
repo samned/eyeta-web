@@ -12,12 +12,13 @@ export class SocialControl {
         this.mapStyleContainer.classList.add('maplibregl-style-list');
         this.styleButton.classList.add('maplibregl-ctrl-icon');
         this.styleButton.classList.add('maplibre-ctrl-socials');
-        this.styleButton.addEventListener('click', () => {
-            alert('hi');
-        });
-        document.addEventListener('click', this.onDocumentClick);
         this.controlContainer.appendChild(this.styleButton);
         this.controlContainer.appendChild(this.mapStyleContainer);
+        this.styleButton.addEventListener('click', () => {
+            // window.location.href('https://t.me/Eyetatechemobile');
+            window.location.replace('https://t.me/Eyetatechemobile');
+        });
+
         return this.controlContainer;
     }
 
