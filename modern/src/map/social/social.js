@@ -16,7 +16,7 @@ export class SocialControl {
         this.controlContainer.appendChild(this.mapStyleContainer);
         this.styleButton.addEventListener('click', () => {
             // window.location.href('https://t.me/Eyetatechemobile');
-            window.location.replace('https://t.me/Eyetatechemobile');
+            window.open('https://t.me/Eyetatechemobile');
         });
 
         return this.controlContainer;

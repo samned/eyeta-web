@@ -4,6 +4,7 @@ import React, {
   useRef, useLayoutEffect, useEffect, useState,
 } from 'react';
 import { SwitcherControl } from '../switcher/switcher';
+import { SocialControl } from '../social/social';
 import { useAttributePreference, usePreference } from '../../common/util/preferences';
 import usePersistedState, { savePersistedState } from '../../common/util/usePersistedState';
 import { mapImages } from './preloadImages';
@@ -71,7 +72,7 @@ const switcher = new SwitcherControl(
 
 map.addControl(switcher);
 
-
+map.addControl(new SocialControl());
 const MapView = ({ children }) => {
   const containerEl = useRef(null);
 

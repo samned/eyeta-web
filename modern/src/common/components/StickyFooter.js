@@ -4,9 +4,9 @@ import Link from '@mui/material/Link';
 
 const Copyright = () => (
   <Typography variant="body2" color="text.secondary">
-    {'Copyright © '}
+    {'all copyright reserved © '}
     <Link color="inherit" href="https://eyetatechmobile.com/">
-      Eyeta TechMobile, LLC
+      Eyeta Tech-Mobile Inc.
     </Link>
     {' '}
     {new Date().getFullYear()}

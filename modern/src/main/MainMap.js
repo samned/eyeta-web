@@ -22,7 +22,6 @@ import useFeatures from '../common/util/useFeatures';
 const MainMap = ({ filteredPositions, selectedPosition, onEventsClick }) => {
   const theme = useTheme();
   const dispatch = useDispatch();
-
   const desktop = useMediaQuery(theme.breakpoints.up('md'));
 
   const eventsAvailable = useSelector((state) => !!state.events.items.length);
